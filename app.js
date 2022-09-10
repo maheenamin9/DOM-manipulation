@@ -49,6 +49,7 @@ function showUser() {
     }
 }
 
+
 // to prevent dependency
 delAllFlag = true;
 
@@ -58,7 +59,7 @@ function showForm() {
     document.getElementById("showReviews").innerHTML = "";
     if(formDataArray != null) {
         for (let i = 0; i < formDataArray.length; i++) {
-            document.getElementById("showReviews").innerHTML += '<h6>' + formDataArray[i].name + '\'s record:</h6><li><strong>Email : </strong>' + formDataArray[i].email + '</li><li><strong>Phone # : </strong>' + formDataArray[i].phoneno + '</li><li><strong>Review : </strong>' + formDataArray[i].message + '</li></ul>';
+            document.getElementById("showReviews").innerHTML += '<h6>' + formDataArray[i].name + '\'s record:<button onclick="' + "removeFormUser(" + i + ")" + '" style="float:right; background-color: #dc3545; color: #fff; border: none; padding: 5px 10px; cursor: pointer;">Delete</button></h6><li><strong>Email : </strong>' + formDataArray[i].email + '</li><li><strong>Phone # : </strong>' + formDataArray[i].phoneno + '</li><li><strong>Review : </strong>' + formDataArray[i].message + '</li></ul>';
         }
     }
     else if(delAllFlag){
@@ -76,8 +77,19 @@ function removeUser(index) {
     localStorage.removeItem("users");
     localStorage.setItem("users", JSON.stringify(userLoginArray));
     showUser();
-
 }
+
+
+// delete particular form record
+function removeFormUser(index) {
+    // console.log(index);
+    userLoginArray = JSON.parse(localStorage.getItem("form-data")); // array of objects
+    userLoginArray.splice(index, 1);
+    localStorage.removeItem("form-data");
+    localStorage.setItem("form-data", JSON.stringify(userLoginArray));
+    showForm();
+}
+
 
 // delete all fetched records
 function showFetchAlert() {
@@ -92,6 +104,8 @@ function showFetchAlert() {
         alert("Nothing to delete here");
     }
 }
+document.getElementById("delAllUserBtn").addEventListener("click", showFetchAlert);
+
 
 // delete all form records
 function showFormAlert() {
@@ -107,7 +121,4 @@ function showFormAlert() {
         alert("Nothing to delete here");
     }
 }
-
-
-document.getElementById("delAllUserBtn").addEventListener("click", showFetchAlert);
 document.getElementById("delAllFormBtn").addEventListener("click", showFormAlert);

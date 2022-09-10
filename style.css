@@ -1,0 +1,82 @@
+.contact-form{
+    background: -webkit-linear-gradient(left, #0072ff, #00c6ff);
+    margin-top: 3%;
+    margin-bottom: 4%;
+    width: 75%;
+}
+.contact-form .form-control{
+    border-radius: 1rem;
+}
+.contact-image{
+    text-align: center;
+}
+.contact-image img{
+    border-radius: 6rem;
+    width: 11%;
+    margin-top: 3%;
+    transform: rotate(29deg);
+}
+.contact-form form{
+    padding: 10%;
+}
+.contact-form form .row{
+    margin-bottom: -8%;
+}
+.contact-form h3{
+    margin-bottom: 6%;
+    margin-top: -10%;
+    text-align: center;
+    color: white;
+}
+.contact-form .btnContact, .show-data-container .users #fetchBtn, .show-data-container .users #delAllUserBtn , .show-data-container .form-data #reviewBtn, .show-data-container .form-data #delAllFormBtn {
+    width: 50%;
+    margin: 10px 5px;
+    border: none;
+    border-radius: 1rem;
+    padding: 1.5%;
+    background: #dc3545;
+    font-weight: 600;
+    color: #fff;
+    cursor: pointer;
+}
+.contact-form .greenBtn, .show-data-container .users #fetchBtn, .show-data-container .form-data #reviewBtn{
+    background: rgb(45 167 45);
+}
+.btnContactSubmit
+{
+    width: 50%;
+    border-radius: 1rem;
+    padding: 1.5%;
+    color: #fff;
+    background-color: #0062cc;
+    border: none;
+    cursor: pointer;
+}
+.show-data-container{
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 4%;
+    display: flex;
+    background: -webkit-linear-gradient(top, #0072ff, #00c6ff);
+}
+.show-data-container .users{
+    padding: 50px;
+    width: 50%;
+}  
+.show-data-container .form-data{
+    padding: 50px;
+    width: 50%;
+}  
+.show-data-container .row .users button{
+    text-align: center;
+}
+
+@media (max-width: 880px) {
+    .show-data-container{
+        flex-direction: column;
+    }   
+    .show-data-container .users, .show-data-container .form-data {
+        width: 100%;
+    }
+}
